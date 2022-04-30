@@ -1,0 +1,40 @@
+{"myToDoLists":
+    [
+        {
+            "title": "to do List1",
+            "date": "2022년 x월 x일 x요일",
+            "toDo": [
+                {
+                    "text": "해야 할 일1",
+                    "complete": false
+                },
+                {
+                    "text": "해야 할 일2",
+                    "complete": false
+                },
+                {
+                    "text": "해야 할 일3",
+                    "complete": true
+                }
+            ]
+        },
+        {
+            "title": "to do List2",
+            "date": "2022년 x월 x일 x요일",
+            "toDo": [
+                {
+                    "text": "해야 할 일1",
+                    "complete": true
+                },
+                {
+                    "text": "해야 할 일2",
+                    "complete": false
+                },
+                {
+                    "text": "해야 할 일3",
+                    "complete": true
+                }
+            ]
+        }
+    ]
+}

@@ -12,77 +12,117 @@
 </head>
 
 <body>
-    <div id="wrap">
+    <div class="wrap">
         <!-- HEADER -->
         <header>
-            <h1 class="todo-title">to do list</h1>
+            <h1>to do list</h1>
         </header>
         <!-- //HEADER -->
 
         <!-- Container -->
         <div class="container">
             <div class="btn-wrap">
-                <div class="addBtn btn">추가</div>
-                <div class="delBtn btn">삭제</div>
+                <button class="addBtn" type="button">추가</button>
+                <button class="delBtn" type="button">삭제</button>
             </div>
 
             <!-- cardWrap -->
             <div class="cardWrap">
-                
-                <form class="todo-box" method="post">
-                    <input type="text" id="titleSpace" placeholder="제목을 입력하세요">
-                    <div class="currentDate">date(auto)</div>
-                    <div class="n-task">할 일 n개 남음</div>
-                    <hr>
-                    
-                    <div class="list-wrap">
-                        <div class="list">
-                            <input type="checkbox" id="chk1" value="">
-                            <label for="chk1">할 일을 적어봅시다.</label>
-                            <span class="trash-btn"></span>
+
+                <!-- <label for="box1" class="todoBox">
+                    <input type="checkbox" id="box1" class="checkBoxs" disabled>
+                    <div class="boxWrap">
+                        <div class="title">
+                            <div class="in">
+                                <div class="tit">제목을 입력해 주세요.</div>
+                                <div class="date">2022년 x월 x월 x요일</div>
+                                <div class="listCount">할 일 <i>0</i>개 남음</div>
+                            </div>
                         </div>
-                        <div class="list">
-                            <input type="checkbox" id="chk2" value="">
-                            <label for="chk2">할 일을 적어봅시다.</label>
-                            <span class="trash-btn"></span>
+                        <hr>
+
+                        <div class="listWrap">
+                            <div class="in">
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="box1_list1"><label for="box1_list1">할 일을
+                                            적어봅시다.</label><span class="trashBtn"></span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="list">
-                            <input type="checkbox" id="chk3" value="">
-                            <label for="chk3">할 일을 적어봅시다.</label>
-                            <span class="trash-btn"></span>
+                        <div class="inputForm">
+                            <div class="in">
+                                <input type="text" placeholder="할 일을 입력 후, Enter를 누르세요" onkeyup="enterCheck();">
+                            </div>
                         </div>
-                        <div class="input-form">
-                            <input type="text" id="inputBox" placeholder="할 일을 입력 후, Enter를 누르세요">
-                        </div>    
+                        <button class="todoBtn addToDo" onclick="javascript:toDoBtnClick(this)" type="button"></button>
                     </div>
-                    <a href="#c" class="todo-btn"></a>    
-                </form>
-                
-                
-            
-               
-                
+                </label>
+
+                <label for="box2" class="todoBox" >
+                    <div class="boxWrap">
+                        <input type="checkbox" id="box2" class="checkBoxs" disabled>
+                        <div class="title">
+                            <div class="in">
+                                <input class="inputTit" type="text" placeholder="제목을 입력해 주세요." onkeyup="enterCheck();" autofocus />
+                                <div class="date">2022년 x월 x월 x요일</div>
+                                <div class="listCount">할 일 <i>0</i>개 남음</div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="listWrap">
+                            <div class="in">
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="box2_list1"><label for="box2_list1">할 일을
+                                            적어봅시다.</label><span class="trashBtn"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="inputForm">
+                            <div class="in">
+                                <input type="text" placeholder="할 일을 입력 후, Enter를 누르세요" onkeyup="enterCheck();">
+                            </div>
+                        </div>
+                        
+                        <button class="todoBtn addToDo" onclick="javascript:toDoBtnClick(this)" type="button"></button>
+                    </div>
+                </label> -->
+
+
             </div>
             <!-- //cardWrap -->
         </div>
         <!-- //Container -->
     </div>
 
+    <div class="modal" id="delModal">
+        <div class="modalInner">
+            <div class="modalBox">
+                <div class="modalTxtArea">
+                    정말로 <span>삭제</span>하시겠습니까?
+                </div>
+                <div class="modalBtnArea">
+                    <button type="button" onclick="modalYseBtn()">예</button>
+                    <button type="button" onclick="modalNoBtn()">아니오</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mask"></div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
+
+    <script src="./js/modal.js"></script>
+    <script src="./js/common.js"></script>
     <script src="./js/style_common.js"></script>
-    <script>
-        date = new Date();
-        year = date.getFullYear();
-        month = date.getMonth() + 1;
-        day = date.getDate();
-        document.querySelector(".currentDate").innerHTML = year + "/" + month + "/" + day;
 
-        
-
-    </script>
 </body>
 
 </html>

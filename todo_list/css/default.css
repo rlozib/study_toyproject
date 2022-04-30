@@ -39,7 +39,7 @@ button {border:0;background-color:transparent;cursor:pointer;transition: all .3s
 
 
 /* Form Style */
-input[type="text"], input[type="password"], input.text, select, textarea {border: none; vertical-align:middle; box-sizing:border-box; padding:0px 20px; background:#fff; color:#222; }
+input[type="text"], input[type="password"], input.text, select, textarea {border: none; vertical-align:middle; box-sizing:border-box; background:#fff; color:#222; }
 input[type="text"]:hover, input[type="password"]:hover, input.text:hover, select:hover, textarea:hover {transition:all 0.3s; border: none;}
 input[type="text"]:focus, input[type="password"]:focus, input.text:focus, select:focus, textarea:focus {transition:all 0.3s; border: none; box-shadow:none; color:#222; outline: none;}
 input[type="text"].error, input[type="password"].error, input.text.error, select.error, textarea.error {border-color:#e60039;}
@@ -56,5 +56,20 @@ input::placeholder {color:#ccc;}
 /* Btn Style */
 .addBtn {background-color: #fff; color: var(--green);}
 .addBtn:hover {background-color: var(--green); color: #fff;}
+.addBtn:hover {background-color: var(--green); color: #fff;}
 .delBtn {background-color: #fff; color: var(--red);}
+.delBtn.active {background-color: var(--red); color: #fff;}
 .delBtn:hover {background-color: var(--red); color: #fff;}
+
+/* layer & Mask */
+#mask { display: none; position: fixed; background: #000; z-index: 99999; opacity: .6; top: 0; bottom: 0; left: 0; right: 0; transition: all .3s;}
+
+.modal {display: none; /*display: flex;*/ position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100000; align-items: center; justify-content: center;}
+.modal .modalInner {padding: 0 25px; }
+.modal .modalInner .modalBox { background-color: #fff; padding: 15px 25px; width: 300px; border-radius: 5px; box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 70%);}
+.modal .modalBox .modalTxtArea {font-size: 1.25rem; color: #222; line-height: 1.5; text-align: center;}
+.modal .modalBox .modalTxtArea span {font-weight: bold;}
+.modal .modalBox .modalBtnArea {display: flex; justify-content: space-between; align-items: center; gap: 0 15px; margin-top: 30px;}
+.modal .modalBox .modalBtnArea button {width: 50%; font-size: 1rem; color: #222; line-height: 2; border-radius: 3px; border: 1px solid var(--red); transition: all .3s;}
+.modal .modalBox .modalBtnArea button:hover {box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 30%);}
+.modal .modalBox .modalBtnArea button:last-child {background-color: var(--red); color: #fff;}
