@@ -2,8 +2,8 @@ let myToDoLists = new Array();
 document.addEventListener("DOMContentLoaded", function () {
 
     init();
+    
 });
-
 
 
 function init() {
@@ -43,34 +43,33 @@ function drawLocal() {
             label.classList.add('todoBox');
             label.htmlFor = `box${index}`;
             let txt = `
-            <input type="checkbox" id="box${index}" class="checkBoxs" disabled>
-            <div class="boxWrap">
-                <div class="title">
-                    <div class="in">
-                        <div class="tit">${myToDo.title}</div>
-                        <div class="date">${myToDo.date}</div>
-                        <div class="listCount">할 일 ${isComplete}개 남음</div>
+                <input type="checkbox" id="box${index}" class="checkBoxs" disabled>
+                <div class="boxWrap">
+                    <div class="title">
+                        <div class="in">
+                            <div class="tit">${myToDo.title}</div>
+                            <div class="date">${myToDo.date}</div>
+                            <div class="listCount">할 일 ${isComplete}개 남음</div>
+                        </div>
                     </div>
+                    <div class="listWrap">
+                        <div class="in">
+                            <ul>`;
+                            myToDo.toDo.forEach((el,idx)=>{
+                                txt += el.complete === true ? 
+                                `<li><input type="checkbox" id="box${index}_list${idx}" checked onChange="modLocal(this)" /><label for="box${index}_list${idx}">${el.text}</label><span class="trashBtn" onClick="delLocalToDo(this)"></span></li>` :
+                                `<li><input type="checkbox" id="box${index}_list${idx}" onChange="modLocal(this)" /><label for="${index}_list${idx}">${el.text}</label><span class="trashBtn" onClick="delLocalToDo(this)"></span></li>`;
+                            });                            
+            txt += `</ul>
+                        </div>
+                    </div>       
+                    <div class="inputForm">
+                        <div class="in">
+                            <input class="inputBox" type="text" placeholder="할 일을 입력 후, Enter를 누르세요" onkeyup="enterCheck();" />
+                        </div>
+                    </div>
+                    <button class="todoBtn addToDo" onclick="javascript:toDoBtnClick(this);" type="button"></button>
                 </div>
-                <hr>
-                <div class="listWrap">
-                    <div class="in">
-                        <ul>`;
-                        myToDo.toDo.forEach((el,idx)=>{
-                            txt += el.complete === true ? 
-                            `<li><input type="checkbox" id="box${index}_list${idx}" checked onChange="modLocal(this)" /><label for="box${index}_list${idx}">${el.text}</label><span class="trashBtn" onClick="delLocalToDo(this)"></span></li>` :
-                            `<li><input type="checkbox" id="box${index}_list${idx}" onChange="modLocal(this)" /><label for="${index}_list${idx}">${el.text}</label><span class="trashBtn" onClick="delLocalToDo(this)"></span></li>`;
-                        });                            
-        txt += `</ul>
-                    </div>
-                </div>       
-                <div class="inputForm">
-                    <div class="in">
-                        <input class="inputBox" type="text" placeholder="할 일을 입력 후, Enter를 누르세요" onkeyup="enterCheck();" />
-                    </div>
-                </div>
-                <button class="todoBtn addToDo" onclick="javascript:toDoBtnClick(this);" type="button"></button>
-            </div>
             `;
 
             label.innerHTML = txt;
@@ -166,7 +165,7 @@ function modalYseBtn() {
     //해당 위치들 배열화
     document.querySelectorAll('.cardWrap').forEach((el, idx) => {
         if (el.querySelector('.checkBoxs').checked) {
-            selectLists.push(Number(el.htmlFor.replace('box', '')))
+            selectLists.push(Number(el.htmlFor.replace('boxWrap', '')))
         }
     });
     //myToDoList에서 배열에 있는 위치 값들 삭제

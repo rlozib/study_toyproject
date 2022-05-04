@@ -54,7 +54,7 @@ header h1 {
     margin-bottom: 50px; */
 }
 .cardWrap .in {
-    padding: 20px 0;
+    padding: 20px;
 }
 .cardWrap input[class="checkBoxs"] {
     display: none; 
@@ -79,7 +79,8 @@ header h1 {
 }
 
 .title {
-    margin: 0 20px ;
+    border-bottom: 1px solid var(--gray);
+    line-height: 1;
 }
 .title input {
     width: 100%;
@@ -95,7 +96,7 @@ header h1 {
 .date {
     font-size: 14px;
     color: #ccc;
-    
+    padding-top: 10px;
 }
 .listCount {
     font-size: 12px;
@@ -108,8 +109,7 @@ header h1 {
 .listWrap {
     width: 100%;
     height: 230px;
-    padding-top: 10px;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     box-sizing: border-box;
 }
 .listWrap ul {
@@ -119,7 +119,7 @@ header h1 {
 }
 .listWrap ul li {
     position: relative;
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 
 .listWrap input[type="checkbox"] {
@@ -128,11 +128,10 @@ header h1 {
     border-radius: 50%;
     border: solid 1px #ccc;
     appearance: none;
-    margin-left: 20px;
     cursor: pointer;
     vertical-align: center;
 }
-.listWrap ul liinput[type="checkbox"]:checked {
+.listWrap ul li input[type="checkbox"]:checked {
     border: solid 1px #69d1a2;
     color: #ccc;
     background: no-repeat center/60% url("../img/check.png");
@@ -150,7 +149,7 @@ label {
 
 .trashBtn {
     position: absolute;
-    right: 20px;
+    right: 0;
     top: 0;
     width: 23px;
     height: 23px;
